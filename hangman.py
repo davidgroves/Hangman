@@ -82,7 +82,7 @@ if __name__ == '__main__':
             # You guessed incorrectly.
             lives -= 1
 
-        # Note you guessed correctly
+        # Add the new gueess to the letters already attempted.
         already_guessed.append(letter)
 
         # Check if you have won.
