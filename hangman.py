@@ -22,6 +22,12 @@ def show_word(word, already_guessed):
 
 
 def get_input(already_guessed, lives):
+    '''
+
+    :param already_guessed: The words the person has already guessed, so they can't try things twice.
+    :param lives: How many lives they have so we can print this.
+    :return: The letter they guessed, always in lower case.
+    '''
     while True:
         try:
             letter = input("Enter a letter to guess. (You have {} lives remaining): ".format(lives))
@@ -37,10 +43,16 @@ def get_input(already_guessed, lives):
         except ValueError as e:
             print(e)
         else:
-            return letter
+            return letter.lower()
 
 
 def check_win(word, already_guessed):
+    '''
+
+    :param word: The word to be guessed.
+    :param already_guessed: The letters already guessed.
+    :return: True if the won, False otherwise.
+    '''
     return not set(word).difference(already_guessed)
 
 
@@ -82,3 +94,4 @@ if __name__ == '__main__':
     # We only get here if you have lost.
 
     print("Sorry, but you are out of lives. The word was {}".format(word))
+    sys.exit(1)
